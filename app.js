@@ -2,8 +2,10 @@ const formulario = document.getElementById("form");
 
 formulario.addEventListener("submit", (e) => {
   e.preventDefault();
-  const ipInput = document.getElementById("ipInput").value;
-  const url = `https://ipinfo.io/${ipInput}?token=67e278cd69b737`;
+  const ipInput = document.getElementById("ipInput").value.trim();
+  const url = ipInput
+    ? `https://ipinfo.io/${ipInput}?token=67e278cd69b737`
+    : `https://ipinfo.io?token=67e278cd69b737`;
 
   fetch(url)
     .then((response) => {
